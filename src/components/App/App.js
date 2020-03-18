@@ -20,7 +20,9 @@ class App extends Component {
       health,
       science,
       technology,
-      currentArticles: 'local'
+      currentArticles: 'local',
+      previousArticles: '',
+      searchedArticles: [],
     }
   }
 
@@ -30,6 +32,24 @@ class App extends Component {
 
   changeCurrentArticles = (articles) => {
     this.setState({currentArticles: articles})
+  }
+
+  searchArticles = (search) => {
+    if (search.length > 0) {
+      const articles = this.state[this.state.currentArticles]
+      const searched = articles.filter(article => article.headline.includes(search.toLowerCase) )
+      const results = this.searchedArticles.concat(searched)
+      this.setState({
+        previousArticles: this.state.currentArticles,
+        searchedArticles: results,
+        currentArticles: 'searchedArticles'
+      })
+    } else {
+      this.setState({
+        currentArticles: this.state.previousArticles,
+        searchedArticles: [],
+      })
+    }
   }
 
 
