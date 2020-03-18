@@ -12,7 +12,11 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <h3>hi</h3>
+      <form>
+        <h3 className='unselectable name'>What's <span>New?</span></h3>
+        <input className='search-input' type='text' placeholder='Search News Articles Here'/>
+        <button className='unselectable search-btn' type='button'>Search Now</button>
+      </form>
     )
   }
 
