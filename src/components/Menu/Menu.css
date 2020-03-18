@@ -1,0 +1,20 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.category {
+  display: flex;
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 80%;
+  margin: 6% 0;
+}
+
+.icon {
+  display: block;
+  width: 2rem;
+  margin-right: 1rem
+}
