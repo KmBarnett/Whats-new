@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <section className="app">
         <header>
-          <SearchForm />
+          <SearchForm searchArticles={this.searchArticles}/>
         </header>
         <main>
           <nav>
