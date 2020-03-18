@@ -1,0 +1,15 @@
+.article-container {
+  /* border: solid white; */
+  width: 82%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 2%;
+  padding-left: 1%;
+  padding-bottom: 8%;
+  position: fixed;
+  overflow-x: scroll;
+  right: 0;
+}
