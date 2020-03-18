@@ -40,13 +40,15 @@ class App extends Component {
       const articles = this.state[this.state.currentArticles]
       const searched = articles.filter(article => article.headline.includes(search.toLowerCase()) )
       console.log(articles);
-      const results = this.state.searchedArticles.concat(searched)
+      const results = searched || []
       this.setState({
-        previousArticles: this.state.currentArticles,
+        previousArticles: (this.state.currentArticles !== 'searchedArticles')
+          ? this.state.currentArticles : this.state.previousArticles,
         searchedArticles: results,
         currentArticles: 'searchedArticles'
       })
     } else {
+      console.log('in');
       this.setState({
         currentArticles: this.state.previousArticles,
         searchedArticles: [],
