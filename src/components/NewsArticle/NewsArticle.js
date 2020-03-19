@@ -13,7 +13,7 @@ const NewsArticle = (props) => {
           <section className='info'>
             <h3 className='article-headline'>{article.headline}</h3>
             <p className='article-description'>{article.description}</p>
-            <a className='article-url' href={article.url}>Read This article</a>
+            <a className='article-url' href={article.url}>Read This article <span className='arrow'>⇢</span></a>
           </section>
         </section>
       )})
