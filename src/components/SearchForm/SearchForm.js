@@ -10,6 +10,9 @@ const SearchForm = (props) => {
           if (e.key === 'Enter') {
             e.preventDefault()
           }
+          if (e.target.value.length === 1 & e.keyCode === 8) {
+            props.searchArticles('')
+          }
           (e.keyCode === 13) && props.searchArticles(e.target.value)
         } } className='search-input' type='text' placeholder='Search News Articles Here'/>
         <button type='button' onClick={(e) => {
