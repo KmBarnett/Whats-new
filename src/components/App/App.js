@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import noImage from '../../assets/image-not-found.png';
-import local from '../../data/local';
-import entertainment from '../../data/entertainment';
-import health from '../../data/health';
-import science from '../../data/science';
-import technology from '../../data/technology';
+// import local from '../../data/local';
+// import entertainment from '../../data/entertainment';
+// import health from '../../data/health';
+// import science from '../../data/science';
+// import technology from '../../data/technology';
 import './App.css';
 import SearchForm from './../SearchForm/SearchForm.js';
 import Menu from './../Menu/Menu.js';
@@ -15,15 +15,37 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      local,
-      entertainment,
-      health,
-      science,
-      technology,
+      local: [],
+      entertainment: [],
+      health: [],
+      science: [],
+      technology: [],
       currentArticles: 'local',
       previousArticles: 'local',
       searchedArticles: [],
     }
+  }
+
+
+  componentDidMount() {
+    this.grabArticles();
+  }
+  //
+
+
+  grabArticles() {
+    fetch('https://whats-new-api.herokuapp.com/api/v1/news')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          local: data.local,
+          entertainment: data.entertainment,
+          health: data.health,
+          science: data.science,
+          technology: data.technology,
+        })
+      })
+      .catch(err => console.log(err.message))
   }
 
   handleError(e) {
