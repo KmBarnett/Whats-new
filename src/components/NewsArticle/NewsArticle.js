@@ -8,7 +8,7 @@ const NewsArticle = (props) => {
         <section id={article.id} key={article.id}  className='news-article'>
           <img className='article-img'
             src={article.img}
-            alt=''
+            alt='description bellow'
             onError= {props.handleError}/>
           <section className='info'>
             <h3 className='article-headline'>{article.headline}</h3>
