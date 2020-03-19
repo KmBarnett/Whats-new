@@ -31,15 +31,17 @@ class App extends Component {
   }
 
   changeCurrentArticles = (articles) => {
-    this.setState({currentArticles: articles})
+    this.setState({
+      currentArticles: articles,
+      previousArticles: articles
+    })
   }
 
   searchArticles = (search) => {
     if (search.length > 0) {
       console.log(search);
       const articles = this.state[this.state.currentArticles]
-      const searched = articles.filter(article => article.headline.includes(search.toLowerCase()) )
-      console.log(articles);
+      const searched = articles.filter(article => article.headline.toLowerCase().includes(search.toLowerCase()) )
       const results = searched || []
       this.setState({
         previousArticles: (this.state.currentArticles !== 'searchedArticles')
